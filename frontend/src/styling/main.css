@@ -1,0 +1,126 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Overriding bootstrap */
+.row {
+    margin: 0 !important;
+}
+
+/* Custom CSS */
+.success {
+    color: green;
+}
+
+.failure {
+    color: red;
+}
+
+.ul-no-style {
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 7px;
+}
+
+.button-big {
+    width: 100%;
+    height: 7vh;
+    margin-bottom: 10px;
+}
+
+.button-wide {
+    width: 100%;
+}
+
+.span-underline {
+    text-decoration: underline;
+}
+
+.image-container {
+    height: 75vh;
+}
+
+.image-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.image-pixelated-scaling {
+    image-rendering: pixelated;
+}
+
+.no-padding-left {
+    padding-left: 0 !important
+}
+
+.map-container > div {
+    width: 100%;
+}
+
+.maps {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.container-no-padding {
+    padding: 0 !important;
+}
+
+.button-no-padding {
+    padding: 0 !important;
+}
+
+.scrollbox {
+    border: 1px solid black;
+    height: 75vh;
+    margin-bottom: 6px;
+    overflow: auto;
+    padding: 0 !important;
+}
+
+.false-color-image-container {
+    display: flex;
+    align-items: center;
+    height: 75vh;
+    margin-bottom: 6px;
+}
+
+.false-color-loading-container {
+    text-align: center;
+}
+
+.left-column {
+    padding-right: 3px !important;
+}
+
+.right-column {
+    padding-left: 3px !important;
+}
+
+.number-big {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.input-group-margin-fix {
+    margin-top: 8px;
+}
+
+.color-circle-picker {
+    margin-top: 10px !important;
+}
+
+.hidden {
+    display: none !important
+}
+
+.image-container {
+    height: 525px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

@@ -1,0 +1,32 @@
+{
+    "STATUS_ROUTES": {
+        "PING": "api/status/ping",
+        "JOBS_IN_QUEUE": "api/status/jobs"
+    },
+    "DATASET_ROUTES": {
+        "BASE": "api/dataset",
+        "ID_VALIDATE": "validate",
+        "GROUNDTRUTH": "groundtruth",
+        "ID_GROUNDTRUTH_VALIDATE": "groundtruth_validate",
+        "ID_CONFIRM": "confirm",
+        "ID_EDIT": "edit",
+        "ID_LAYER": "layer",
+        "CREATE_MODEL": "model",
+        "CREATE_MODEL_GROUNDTRUTH": "model_groundtruth",
+        "ID_GENERATE_THUMBNAIL": "generate_thumbnail",
+        "ID_GROUND_TRUTH_IMAGE": "ground_truth_image"
+    },
+    "MODEL_ROUTES": {
+        "BASE": "api/model",
+        "GET_QUEUED": "queued",
+        "GET_FINISHED": "finished",
+        "GET_FILTER_PARAMETERS": "filter-values",
+        "GET_FILTERED": "filtered",
+        "TYPES": "types",
+        "GET_PARAMETER_TYPES": "parameters/type/",
+        "GET_SERVER_INFORMATION": "server_information"
+    },
+    "DATA_ROUTES": {
+
+    }
+}
