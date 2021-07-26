@@ -21,13 +21,11 @@ Hyperspectral images consist of several grayscale images, where each layer repre
 
 Below you can see an example of a classification result. On the left is a grayscale visualization of band 51 of the Pavia University hyperspectral dataset, which is frequently used in academic literature to solve the problem of hyperspectral classification. The second image shows the ground truth of the dataset, while the third dataset shows the predicted classification map of the hyperspectral image which was trained with a multi-stream capsule network architecture. With a very small subset of the pixels in the ground truth map (150 training samples per geological class), we are able to extract the complete predicted classification map for all pixels in the image. Compared to the ground truth, this particular map achieves an overall accuracy of 98.25%. For more information on the deep learning architecture that was used - which is included in the software - I refer to [the book - TODO](TODO). 
 
-<table>
-    <tr>
-        <img src="./docs/images/paviau-false-colour-image.png" width="25%"/> &nbsp;
-        <img src="./docs/images/paviau-ground-truth.png" width="25%" /> &nbsp;
-        <img src="./docs/images/paviau-ms-135.png" width="25%" />
-    </tr>
-</table>
+<p align="middle">
+    <img src="./docs/images/paviau-false-colour-image.png" width="25%"/> &nbsp;
+    <img src="./docs/images/paviau-ground-truth.png" width="25%" /> &nbsp;
+    <img src="./docs/images/paviau-ms-135.png" width="25%" />
+</p>
 
 This application allows the user to upload datasets, manually indicate training samples, use existing or create supervised deep learning architectures, configure architecture parameters, and bundle these to schedule a model. For the built-in architecture, a GPU and correct drivers are required to actually train the model. More information on this can be found in the [technical requirements](./docs/technical_requirements.md).
 
