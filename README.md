@@ -23,9 +23,9 @@ Below you can see an example of a classification result. On the left is a graysc
 
 <table>
     <tr>
-        <img src="./docs/images/paviau-false-colour-image.png" width="30%"/> &nbsp;
-        <img src="./docs/images/paviau-ground-truth.png" width="30%" /> &nbsp;
-        <img src="./docs/images/paviau-ms-135.png" width="30%" />
+        <img src="./docs/images/paviau-false-colour-image.png" width="25%"/> &nbsp;
+        <img src="./docs/images/paviau-ground-truth.png" width="25%" /> &nbsp;
+        <img src="./docs/images/paviau-ms-135.png" width="25%" />
     </tr>
 </table>
 
