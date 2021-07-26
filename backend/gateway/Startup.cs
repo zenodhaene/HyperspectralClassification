@@ -1,7 +1,3 @@
-using backend.Services;
-using backend.Settings;
-using database.Services;
-using database.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,13 +6,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace backend {
+namespace gateway {
     public class Startup {
         public Startup(IConfiguration configuration) {
             Configuration = configuration;
@@ -26,22 +23,13 @@ namespace backend {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
-            services.Configure<MongoDBSettings>(Configuration.GetSection("MongoDB"));
-            services.Configure<PythonBackendSettings>(Configuration.GetSection("PythonBackend"));
+            services.AddControllers();
 
-            services.AddHttpClient<PythonModelService>();
+            services.AddCors(options => {
+                options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+            });
 
-            services.AddSingleton<IMongoDBSettings>(o => o.GetRequiredService<IOptions<MongoDBSettings>>().Value);
-            services.AddSingleton<IPythonBackendSettings>(o => o.GetRequiredService<IOptions<PythonBackendSettings>>().Value);
-
-            services.AddSingleton<AccountService>();
-            services.AddSingleton<DatasetService>();
-            services.AddSingleton<MatlabDatasetService>();
-            services.AddSingleton<ModelService>();
-
-            services.AddSingleton<PythonDatasetService>();
-
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddOcelot();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,15 +38,17 @@ namespace backend {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
-
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });
+
+            app.UseOcelot().Wait();
         }
     }
 }

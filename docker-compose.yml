@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+    gateway:
+        build:
+            context: backend/
+            dockerfile: gateway/Dockerfile
+        ports:
+            - "80:80"
+    frontend:
+        build:
+            context: frontend/
+    backend:
+        build:
+            context: backend/
+            dockerfile: backend/Dockerfile
+    mongodb:
+        image: mongo
+        restart: always
+        volumes:
+          - D:\Data\mongodb\thesis:/data/db
+        ports: 
+            - "27017:27017"

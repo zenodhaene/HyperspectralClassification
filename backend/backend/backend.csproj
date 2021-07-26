@@ -2,11 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>a56b4e5e-31f7-4036-801e-7ee4c7f56813</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.12" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
     <PackageReference Include="MongoDB.Bson" Version="2.12.0-beta1" />
     <PackageReference Include="MongoDB.Driver" Version="2.12.0-beta1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1-beta1" />

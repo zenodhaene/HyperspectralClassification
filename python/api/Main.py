@@ -35,6 +35,6 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, test)
 
     try:
-        app.run(port=5002, use_reloader=False)
+        app.run(port=5000, use_reloader=False)
     except (KeyboardInterrupt, SystemExit):
         print("interrupted")
