@@ -27,6 +27,6 @@ Below you can see an example of a classification result. On the left is a graysc
     <img src="./docs/images/paviau-ms-135.png" width="25%" />
 </p>
 
-This application allows the user to upload datasets, manually indicate training samples, use existing or create supervised deep learning architectures, configure architecture parameters, and bundle these to schedule a model. For the built-in architecture, a GPU and correct drivers are required to actually train the model. More information on this can be found in the [technical requirements](./docs/technical_requirements.md).
+This application allows the user to upload datasets, manually indicate training samples, use existing or create supervised deep learning architectures, configure architecture parameters, and bundle these to schedule a model. For the built-in architecture, a GPU and correct drivers are required to actually train the model. More information on this can be found in the [docs](./docs/README.md).
 
 The user can also use the tool to inspect their or other users' trained models, as well as display statistics like confusion maps, overall- and average accuracies, and the Kappa score.
