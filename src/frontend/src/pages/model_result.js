@@ -18,6 +18,9 @@ import Card from 'react-bootstrap/Card'
 // custom components
 import Base from 'pages/base'
 
+// config
+import MainConfig from 'config/main_config.json'
+
 import { GetModel } from 'backend/model'
 import { GetDataset } from 'backend/dataset'
 
@@ -136,22 +139,30 @@ export default class ModelResultPage extends React.Component {
                                                                         <th>Area</th>
                                                                     }
                                                                     <th>Unit</th>
+                                                                    <th>Color</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 {this.state.model.classification_areas.map((value, index) => {
+                                                                    var backgroundColor = MainConfig.DISTINCT_COLOR_LIST[index];
+                                                                    if (this.state.model.class_colors !== null && index < this.state.model.class_colors.length) {
+                                                                        var backgroundColor = this.state.model.class_colors[index]
+                                                                    }
+
                                                                     if (this.state.dataset === null || this.state.dataset.resolution <= 0) {
                                                                         if (this.state.model.class_names !== null && this.state.model.class_names[index] !== null) {
                                                                             return (<tr key={index}>
                                                                                 <th>{this.state.model.class_names[index]}</th>
                                                                                 <th>{value}</th>
                                                                                 <th>Pixels</th>
+                                                                                <th style={{backgroundColor: backgroundColor}}></th>
                                                                             </tr>)
                                                                         } else {
                                                                             return (<tr key={index}>
                                                                                 <th>Class {index}</th>
                                                                                 <th>{value}</th>
                                                                                 <th>Pixels</th>
+                                                                                <th style={{backgroundColor: backgroundColor}}></th>
                                                                             </tr>)
                                                                         }
                                                                         
@@ -168,12 +179,14 @@ export default class ModelResultPage extends React.Component {
                                                                                 <th>{this.state.model.class_names[index]}</th>
                                                                                 <th>{area}</th>
                                                                                 <th>{suffix}^2</th>
+                                                                                <th style={{backgroundColor: backgroundColor}}></th>
                                                                             </tr>)
                                                                         } else {
                                                                             return (<tr key={index}>
                                                                                 <th>Class {index}</th>
                                                                                 <th>{area}</th>
                                                                                 <th>{suffix}^2</th>
+                                                                                <th style={{backgroundColor: backgroundColor}}></th>
                                                                             </tr>)
                                                                         }
                                                                     }

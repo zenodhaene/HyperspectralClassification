@@ -1,4 +1,26 @@
 {
     "SERVER_URL": "http://",
-    "GOOGLE_MAPS_API_KEY": ""
+    "GOOGLE_MAPS_API_KEY": "",
+    "DISTINCT_COLOR_LIST": [
+        "#800000",
+        "#E6194B",
+        "#FABED4",
+        "#9A6324",
+        "#F58231",
+        "#FFD8B1",
+        "#808000",
+        "#FFe119",
+        "#FFFAC8",
+        "#BFEF45",
+        "#3CB44B",
+        "#AAFFC3",
+        "#469990",
+        "#42D4F4",
+        "#000075",
+        "#4363D8",
+        "#911EB4",
+        "#DCBEFF",
+        "#F032E6",
+        "#A9A9A9"
+    ]
 }
