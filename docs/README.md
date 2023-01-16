@@ -63,3 +63,31 @@ The frontend is the user's main way of interacting with the microservice applica
 The Python API is not deployed as a microservice by default because it requires the GPU for currently implemented architectures. To install the necessary drivers for tensorflow machine learning, I refer to the [official tensorflow gpu support documentation](https://www.tensorflow.org/install/gpu).
 
 The folder structure of this program is pretty self-explanatory, and I urge you to inspect the files for more information on the inner workings of the API.
+
+### Adding a new architecture
+
+For a user to include a customer architecture of their own design, the model architect must first define and implement the two mandatory inputs of the architecture:
+- the parameters for the model
+- the python implmentation of the architecture
+
+The user must also create a file in the [Models](../src/python/api/Algorithms/Models/) folder for their architecture. It contains two classes: an extension of the [ModelParameters](../src/python/api/Algorithms/ModelParameters.py) class, containing the custom parameters for the architecture that is being implemented, and the python model which has no defined structure.
+
+After this file has been added to the directory, the user must integrate the model into the application:
+- in the [ModelController](../src/python/api/ModelController.py), the user must add an identifier referring to their chosen architecture in the `getAllModelTypes` method. This will make it so that the GUI now displays the architecture as an option when selecting a model architecture.
+- in the [ModelController](../src/python/api/ModelController.py), the user must create the `[identifier]/parameters` API endpoint, where `[identifier]` is the chosen identifier for the architecture in the previous bullet point.
+- in the [ModelRunner](../src/python/api/ModelRunner.py), the mapping from the `[identifier]` to the actual python implementation must be made in the `run` method. Refer to the already present architectures for examples.
+
+### Datasets
+
+Currently supported datasets:
+- Matlab dataset, which is used for many if not all academic hyperspectral image datasets
+- EO1 datasets, which is the data model used by the [Earth Observation 1 - Hyperion](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-earth-observing-one-eo-1-hyperion) mission.
+
+Additional datasets can be added by creating a Python API controller defining the following API endpoints: 
+- `validate`: validates the input dataset
+- `generate_thumbnail`: to generate an `ImageResponse` containing an image data URI used for displaying a thumbnail of the dataset in the front-end
+- `layer`: to generate an `ImageResponse` containing an image data URI used for displaying a visualization of a particular layer of the hyperspectral image
+
+In addition, the `getData` method must be defined. This method is responsible of parsing the data into the numpy array that will be stored in the database.
+
+This file should be registered in the [Main.py](../src/python/api/Main.py) python class to enable the API endpoints. To implement custom behavior such as making this dataset work with the backend, I refer to the two examples already implemented in this repository: `EO1Dataset.py` and `MatlabDataset.py`.
